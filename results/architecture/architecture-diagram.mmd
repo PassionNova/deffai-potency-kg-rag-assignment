@@ -1,0 +1,69 @@
+%% Potency evidence platform on AWS (us-east-1). Solid = online path, dashed = async/analytics.
+flowchart LR
+  subgraph Clients
+    UI[Reviewer web app<br/>Cognito OIDC]
+    APIC[Customer API clients]
+  end
+
+  subgraph Edge
+    WAF[AWS WAF] --> ALB[Application Load Balancer]
+  end
+  UI --> WAF
+  APIC --> WAF
+
+  subgraph VPC["VPC (2 AZ, private subnets)"]
+    API["Answer API service<br/>ECS Fargate ARM x2+<br/>FastAPI + bge-base query embedder<br/>(same code as prototype answering service)"]
+    WRK["Pipeline workers<br/>ECS Fargate Spot, scale 0..N<br/>import / chunk / embed / extract / graph build"]
+    SFN["Step Functions<br/>per-document ingestion state machine"]
+    Q[(SQS queues<br/>per stage + DLQ)]
+    PG[("RDS PostgreSQL 16 Multi-AZ<br/>pgvector HNSW (halfvec, iterative scans) + pg_trgm<br/>RLS on tenant_id/project_id<br/>evidence, graph, traces (hot 90 d)")]
+  end
+
+  subgraph Storage["S3 (SSE-KMS, per-tenant prefixes + keys)"]
+    RAW[(raw/ originals<br/>immutable, versioned)]
+    NORM[(normalized/ passage records<br/>JSONL + Parquet)]
+    GRAPHX[(graph/ exports<br/>nodes/edges Parquet per build)]
+    TRACE[(traces/ answers + traces<br/>JSONL, partitioned tenant/project/date)]
+    FEED[(feedback/ reviewer actions<br/>append-only JSONL)]
+    EVAL[(eval/ cases, results, reports)]
+  end
+
+  subgraph Managed["Managed AI services"]
+    TX[Amazon Textract<br/>OCR for ~5% scanned pages]
+    BR["Amazon Bedrock (in-region)<br/>Claude Sonnet 5.5: answers + high-value extraction<br/>Claude Haiku 5.5: bulk extraction<br/>Batch inference for backfill"]
+  end
+
+  subgraph Analytics
+    GLUE[Glue Data Catalog + Athena<br/>Lake Formation row filters]
+    QS[Notebooks / dashboards / eval jobs]
+  end
+
+  ALB --> API
+  API -->|scoped SQL, SET app.tenant_id| PG
+  API -->|answer generation| BR
+  API -->|trace write-behind| TRACE
+
+  RAW -->|S3 event| SFN
+  SFN --> Q --> WRK
+  WRK -->|scanned pages| TX
+  WRK -->|extraction tool calls / batch jobs| BR
+  WRK -->|upsert versions, chunks, embeddings, graph| PG
+  WRK --> NORM
+  WRK --> GRAPHX
+
+  UI -. review / correction actions .-> API
+  API -. append .-> FEED
+  FEED -. approved correction -> rebuild affected passages .-> SFN
+
+  NORM -.-> GLUE
+  GRAPHX -.-> GLUE
+  TRACE -.-> GLUE
+  FEED -.-> GLUE
+  EVAL -.-> GLUE
+  GLUE -.-> QS
+  QS -. offline eval / regression gate .-> EVAL
+
+  CW[CloudWatch metrics, logs, alarms<br/>X-Ray traces] -.- API
+  CW -.- WRK
+  KMS[KMS per-tenant CMKs<br/>Secrets Manager] -.- PG
+  KMS -.- Storage

@@ -1,0 +1,404 @@
+{
+  "contract": {
+    "id": "potency-behavior-fixtures",
+    "version": "potency-behavior-fixture-v1",
+    "path": "fixtures/behavior-cases.json"
+  },
+  "scenarios": [
+    {
+      "scenario_id": "source-correction",
+      "question_id": "F-update",
+      "mode": "graph",
+      "stages": [
+        "before",
+        "after"
+      ],
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "source-correction"
+      }
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "question_id": "F-conflict",
+      "mode": "graph",
+      "stages": [
+        "combined"
+      ],
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "unresolved-conflict"
+      }
+    }
+  ],
+  "commands": [
+    "docker compose up -d",
+    "uv run alembic upgrade head",
+    "uv run potency fixtures"
+  ],
+  "execution": {
+    "models": [
+      "claude-sonnet-5-5"
+    ],
+    "embedding_model": [
+      "BAAI/bge-base-en-v1.5"
+    ],
+    "test_doubles_used": false,
+    "note": "Each scenario scope is deleted (RLS-scoped) before its first stage so the run is reproducible; pre-update artifacts are preserved as files under history/."
+  },
+  "history_artifacts": [
+    {
+      "scenario_id": "source-correction",
+      "stage": "before",
+      "run_id": "fx-source-correction-before-20261014T072944Z-9f3fd9",
+      "corpus_snapshot": "potency-behavior-fixture-v1-correction-before",
+      "index_version": "idx-365c8bbfd032",
+      "graph_build_id": "graph-c0628090a26e",
+      "source_refs": [
+        {
+          "scope": {
+            "tenant_id": "fixture-tenant",
+            "project_id": "source-correction"
+          },
+          "source_id": "assay-attribute-note",
+          "source_version": "fixture-v1",
+          "passage_id": "assay-attribute-note:p0001"
+        }
+      ],
+      "superseded_source_refs": [],
+      "source_records_path": "fixtures/history/source-correction/before/source_records.jsonl",
+      "input_copies": [
+        "fixtures/history/source-correction/before/inputs/source-correction-v1.jsonl"
+      ],
+      "graph_nodes_path": "fixtures/history/source-correction/before/graph/nodes.jsonl",
+      "graph_edges_path": "fixtures/history/source-correction/before/graph/edges.jsonl",
+      "answers_path": "fixtures/history/source-correction/before/answers.jsonl",
+      "traces_path": "fixtures/history/source-correction/before/traces.jsonl",
+      "run_metadata_path": "fixtures/history/source-correction/before/run.json",
+      "graph_sha256": {
+        "nodes": "9486ef2017c9cfdcf414494a5642e382b02f4f114763286a1927e18881f9734a",
+        "edges": "e3c990bf215697f381a2446db35ca35109bc6e077792b73156a10b2f666c88c7"
+      }
+    },
+    {
+      "scenario_id": "source-correction",
+      "stage": "after",
+      "run_id": "fx-source-correction-after-20261014T073001Z-fc1dbb",
+      "corpus_snapshot": "potency-behavior-fixture-v1-correction-after",
+      "index_version": "idx-239815b3b1cf",
+      "graph_build_id": "graph-f780f64b800e",
+      "source_refs": [
+        {
+          "scope": {
+            "tenant_id": "fixture-tenant",
+            "project_id": "source-correction"
+          },
+          "source_id": "assay-attribute-note",
+          "source_version": "fixture-v2",
+          "passage_id": "assay-attribute-note:p0001"
+        }
+      ],
+      "superseded_source_refs": [
+        {
+          "scope": {
+            "tenant_id": "fixture-tenant",
+            "project_id": "source-correction"
+          },
+          "source_id": "assay-attribute-note",
+          "source_version": "fixture-v1",
+          "passage_id": "assay-attribute-note:p0001"
+        }
+      ],
+      "source_records_path": "fixtures/history/source-correction/after/source_records.jsonl",
+      "input_copies": [
+        "fixtures/history/source-correction/after/inputs/source-correction-v2.jsonl"
+      ],
+      "graph_nodes_path": "fixtures/history/source-correction/after/graph/nodes.jsonl",
+      "graph_edges_path": "fixtures/history/source-correction/after/graph/edges.jsonl",
+      "answers_path": "fixtures/history/source-correction/after/answers.jsonl",
+      "traces_path": "fixtures/history/source-correction/after/traces.jsonl",
+      "run_metadata_path": "fixtures/history/source-correction/after/run.json",
+      "graph_sha256": {
+        "nodes": "3b1c2e4a9e6cb73fb30568796f71fe682e2a5880de4cf946708eef035099285b",
+        "edges": "a3da14a9615d6db6d02e65a10efdeddd08c91d9e135eacfb78a1a7cb052c4434"
+      }
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "stage": "combined",
+      "run_id": "fx-unresolved-conflict-combined-20261014T073011Z-59fdd4",
+      "corpus_snapshot": "potency-behavior-fixture-v1-conflict",
+      "index_version": "idx-746ffd6f5d14",
+      "graph_build_id": "graph-56be250b587e",
+      "source_refs": [
+        {
+          "scope": {
+            "tenant_id": "fixture-tenant",
+            "project_id": "unresolved-conflict"
+          },
+          "source_id": "plan-k-note-a",
+          "source_version": "fixture-v1",
+          "passage_id": "plan-k-note-a:p0001"
+        },
+        {
+          "scope": {
+            "tenant_id": "fixture-tenant",
+            "project_id": "unresolved-conflict"
+          },
+          "source_id": "plan-k-note-b",
+          "source_version": "fixture-v1",
+          "passage_id": "plan-k-note-b:p0001"
+        }
+      ],
+      "superseded_source_refs": [],
+      "source_records_path": "fixtures/history/unresolved-conflict/combined/source_records.jsonl",
+      "input_copies": [
+        "fixtures/history/unresolved-conflict/combined/inputs/conflict-note-a.jsonl",
+        "fixtures/history/unresolved-conflict/combined/inputs/conflict-note-b.jsonl"
+      ],
+      "graph_nodes_path": "fixtures/history/unresolved-conflict/combined/graph/nodes.jsonl",
+      "graph_edges_path": "fixtures/history/unresolved-conflict/combined/graph/edges.jsonl",
+      "answers_path": "fixtures/history/unresolved-conflict/combined/answers.jsonl",
+      "traces_path": "fixtures/history/unresolved-conflict/combined/traces.jsonl",
+      "run_metadata_path": "fixtures/history/unresolved-conflict/combined/run.json",
+      "graph_sha256": {
+        "nodes": "d06a9f820edee1af641b92793bacc042a5f753f5cd8a9dd0d732aa884e8c5778",
+        "edges": "4d15f69df058102cd8882851e1c48bcaa264398330adf21214eeb9ac17bdf54d"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "scenario_id": "source-correction",
+      "stage": "before",
+      "check_id": "before_answer_grounded_in_v1",
+      "status": "passed",
+      "observed": {
+        "selected_passage_ids": [
+          "fixture-tenant/source-correction/assay-attribute-note@fixture-v1#assay-attribute-note:p0001"
+        ],
+        "cited_source_versions": [
+          "fixture-v1"
+        ],
+        "expected_attribute_mentioned": true,
+        "other_attribute_mentioned": []
+      },
+      "artifact_refs": [
+        "fixtures/history/source-correction/before/answers.jsonl",
+        "fixtures/history/source-correction/before/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "source-correction",
+      "stage": "before",
+      "check_id": "versioned_citations_resolve_exactly",
+      "status": "passed",
+      "observed": {
+        "citations": [
+          {
+            "passage": "assay-attribute-note@fixture-v1#assay-attribute-note:p0001",
+            "exact": true
+          },
+          {
+            "passage": "assay-attribute-note@fixture-v1#assay-attribute-note:p0001",
+            "exact": true
+          }
+        ]
+      },
+      "artifact_refs": [
+        "fixtures/history/source-correction/before/answers.jsonl",
+        "fixtures/history/source-correction/before/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "source-correction",
+      "stage": "after",
+      "check_id": "after_answer_grounded_in_v2",
+      "status": "passed",
+      "observed": {
+        "selected_passage_ids": [
+          "fixture-tenant/source-correction/assay-attribute-note@fixture-v2#assay-attribute-note:p0001"
+        ],
+        "cited_source_versions": [
+          "fixture-v2"
+        ],
+        "expected_attribute_mentioned": true,
+        "other_attribute_mentioned": []
+      },
+      "artifact_refs": [
+        "fixtures/history/source-correction/after/answers.jsonl",
+        "fixtures/history/source-correction/after/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "source-correction",
+      "stage": "after",
+      "check_id": "superseded_assertion_not_current",
+      "status": "passed",
+      "observed": {
+        "superseded_passages_in_evidence": [],
+        "superseded_assertions": [
+          "fixture-tenant/source-correction/Assertion/055a1bdc304512bb",
+          "fixture-tenant/source-correction/Assertion/e16109e5ae86a87d"
+        ],
+        "superseded_assertions_still_current": [],
+        "superseded_version_lifecycle": [
+          "superseded"
+        ]
+      },
+      "artifact_refs": [
+        "fixtures/history/source-correction/after/answers.jsonl",
+        "fixtures/history/source-correction/after/traces.jsonl",
+        "fixtures/history/source-correction/after/graph/nodes.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "source-correction",
+      "stage": "after",
+      "check_id": "versioned_citations_resolve_exactly",
+      "status": "passed",
+      "observed": {
+        "citations": [
+          {
+            "passage": "assay-attribute-note@fixture-v2#assay-attribute-note:p0001",
+            "exact": true
+          },
+          {
+            "passage": "assay-attribute-note@fixture-v2#assay-attribute-note:p0001",
+            "exact": true
+          }
+        ]
+      },
+      "artifact_refs": [
+        "fixtures/history/source-correction/after/answers.jsonl",
+        "fixtures/history/source-correction/after/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "source-correction",
+      "stage": "before",
+      "check_id": "old_sources_assertions_answers_traces_inspectable",
+      "status": "passed",
+      "observed": {
+        "files_present": {
+          "source_records.jsonl": true,
+          "graph/nodes.jsonl": true,
+          "graph/edges.jsonl": true,
+          "answers.jsonl": true,
+          "traces.jsonl": true
+        },
+        "v1_record_preserved": true,
+        "v1_assertion_preserved": true
+      },
+      "artifact_refs": [
+        "fixtures/history/source-correction/before/source_records.jsonl",
+        "fixtures/history/source-correction/before/graph/nodes.jsonl",
+        "fixtures/history/source-correction/before/graph/edges.jsonl",
+        "fixtures/history/source-correction/before/answers.jsonl",
+        "fixtures/history/source-correction/before/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "stage": "combined",
+      "check_id": "both_claims_preserved",
+      "status": "passed",
+      "observed": {
+        "current_assertions_by_passage": [
+          "plan-k-note-a:p0001",
+          "plan-k-note-b:p0001"
+        ],
+        "contradicts_edges": [
+          "fixture-tenant/unresolved-conflict/edge/e40698f8c8d3f53f"
+        ]
+      },
+      "artifact_refs": [
+        "fixtures/history/unresolved-conflict/combined/graph/nodes.jsonl",
+        "fixtures/history/unresolved-conflict/combined/graph/edges.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "stage": "combined",
+      "check_id": "both_sources_in_generation_evidence",
+      "status": "passed",
+      "observed": {
+        "passages_in_evidence_text": [
+          "plan-k-note-a:p0001",
+          "plan-k-note-b:p0001"
+        ]
+      },
+      "artifact_refs": [
+        "fixtures/history/unresolved-conflict/combined/answers.jsonl",
+        "fixtures/history/unresolved-conflict/combined/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "stage": "combined",
+      "check_id": "both_sources_cited_exactly",
+      "status": "passed",
+      "observed": {
+        "cited_passages": [
+          "plan-k-note-a:p0001",
+          "plan-k-note-b:p0001"
+        ],
+        "citations": [
+          {
+            "passage": "plan-k-note-a@fixture-v1#plan-k-note-a:p0001",
+            "exact": true
+          },
+          {
+            "passage": "plan-k-note-b@fixture-v1#plan-k-note-b:p0001",
+            "exact": true
+          }
+        ]
+      },
+      "artifact_refs": [
+        "fixtures/history/unresolved-conflict/combined/answers.jsonl",
+        "fixtures/history/unresolved-conflict/combined/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "stage": "combined",
+      "check_id": "answer_reports_unresolved_conflict",
+      "status": "passed",
+      "observed": {
+        "conflicts": [
+          {
+            "description": "Note A says assay Vega is used as a release assay under plan K for FixtureProduct/FixtureIndication as of 2026-09-01; Note B says it is not used as a release assay for the same scope and date. Both are synthetic fictional fixtures of equal authority, and neither states supersession.",
+            "evidence_ids": [
+              "E1",
+              "E2"
+            ],
+            "resolution": "unresolved"
+          }
+        ],
+        "answer_mentions_unresolved": true
+      },
+      "artifact_refs": [
+        "fixtures/history/unresolved-conflict/combined/answers.jsonl",
+        "fixtures/history/unresolved-conflict/combined/traces.jsonl"
+      ]
+    },
+    {
+      "scenario_id": "unresolved-conflict",
+      "stage": "combined",
+      "check_id": "newer_issue_date_not_used_as_automatic_override",
+      "status": "passed",
+      "observed": {
+        "override_phrase": null,
+        "any_conflict_marked_resolved": false
+      },
+      "artifact_refs": [
+        "fixtures/history/unresolved-conflict/combined/answers.jsonl",
+        "fixtures/history/unresolved-conflict/combined/traces.jsonl"
+      ]
+    }
+  ],
+  "failures": [],
+  "answers_path": "fixtures/answers.jsonl",
+  "traces_path": "fixtures/traces.jsonl",
+  "origin": "supplied visible acceptance fixtures (not candidate-authored holdout)"
+}

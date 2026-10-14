@@ -1,0 +1,86 @@
+{
+  "run_id": "fx-unresolved-conflict-combined-20261014T073011Z-59fdd4",
+  "scenario_id": "unresolved-conflict",
+  "stage": "combined",
+  "operation": "import_together",
+  "import": {
+    "imported": 2,
+    "unchanged": 0,
+    "updated": 0,
+    "failed": 0,
+    "omitted": 0,
+    "records_read": 2,
+    "reconciled": true
+  },
+  "supersession": [],
+  "index": {
+    "passages_indexed": 2,
+    "chunks": 2,
+    "passages_with_multiple_chunks": 0,
+    "embeddings_computed": 2,
+    "embedding_cache_hits": 0,
+    "embedding_model": "BAAI/bge-base-en-v1.5",
+    "embedder_is_test_double": false,
+    "dims": 768,
+    "chunker_version": "ws-window-v1:1500/200",
+    "elapsed_s": 0.25,
+    "index_version": "idx-746ffd6f5d14"
+  },
+  "extraction": {
+    "passages": 2,
+    "selected": 2,
+    "outcome_extracted": 2,
+    "assertions_accepted": 2,
+    "assertions_rejected": 0
+  },
+  "graph": {
+    "graph_build_id": "graph-56be250b587e",
+    "nodes": 10,
+    "edges": 23,
+    "evidence_refs": 22,
+    "node_types": {
+      "Assay": 1,
+      "AssayRole": 1,
+      "Assertion": 2,
+      "Indication": 1,
+      "Product": 1,
+      "SourceDocument": 2,
+      "SourcePassage": 2
+    },
+    "edge_types": {
+      "about": 6,
+      "applies_to": 6,
+      "contains_passage": 2,
+      "contradicts": 1,
+      "document_subject": 4,
+      "supported_by": 2,
+      "used_as": 2
+    },
+    "assertions": 2,
+    "contradictions": 1,
+    "extractor_version": "extractor-v1",
+    "extraction_model": "claude-sonnet-5-5"
+  },
+  "scope_reset_before_scenario": {
+    "evidence_ref": 0,
+    "kg_edge": 0,
+    "kg_node": 0,
+    "graph_build": 0,
+    "extraction_coverage": 0,
+    "extraction_result": 0,
+    "extraction_run": 0,
+    "embedding_cache": 0,
+    "passage_chunk": 0,
+    "index_version": 0,
+    "answer": 0,
+    "trace": 0,
+    "run_record": 0,
+    "usage_ledger": 0,
+    "import_event": 0,
+    "import_run": 0,
+    "passage_text_revision": 0,
+    "passage": 0,
+    "source_version": 0,
+    "source_document": 0
+  }
+}

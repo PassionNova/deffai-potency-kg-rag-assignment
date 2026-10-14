@@ -1,0 +1,410 @@
+{
+  "fixture": "isolation-fixture-v1",
+  "collision": {
+    "source_id": "shared-document",
+    "source_version": "fixture-v1",
+    "passage_id": "shared-document:p0001"
+  },
+  "store": "single shared Postgres database; isolation enforced by row-level security on (tenant_id, project_id)",
+  "restart": "query phase executed in a separate OS process after import (fresh connection pool and caches)",
+  "import_phase": {
+    "fixture-tenant/project-one": {
+      "import": {
+        "imported": 1,
+        "unchanged": 0,
+        "updated": 0,
+        "failed": 0,
+        "omitted": 0,
+        "records_read": 1,
+        "reconciled": true
+      },
+      "index_version": "idx-df306e999e94",
+      "embeddings_computed": 1,
+      "extraction": {
+        "passages": 1,
+        "selected": 0,
+        "outcome_skipped": 1,
+        "skip_too_short_for_semantic_content": 1
+      },
+      "graph": {
+        "graph_build_id": "graph-2d10ba8375f4",
+        "nodes": 2,
+        "edges": 1
+      }
+    },
+    "fixture-tenant/project-two": {
+      "import": {
+        "imported": 1,
+        "unchanged": 0,
+        "updated": 0,
+        "failed": 0,
+        "omitted": 0,
+        "records_read": 1,
+        "reconciled": true
+      },
+      "index_version": "idx-46e24a449074",
+      "embeddings_computed": 1,
+      "extraction": {
+        "passages": 1,
+        "selected": 0,
+        "outcome_skipped": 1,
+        "skip_too_short_for_semantic_content": 1
+      },
+      "graph": {
+        "graph_build_id": "graph-5d59681c5db7",
+        "nodes": 2,
+        "edges": 1
+      }
+    }
+  },
+  "query_run_id": "isolation-20261014T072824Z-612e9b",
+  "checks": [
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": null,
+      "check_id": "store_rows_visible_in_scope",
+      "status": "passed",
+      "observed": {
+        "visible_passages": 1,
+        "rows_with_other_marker": 0
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_traversed_graph_content",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_citations",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_answer",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_trace",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "vector",
+      "check_id": "own_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_contain": "PROJECT_ONE_ONLY",
+        "present": true
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_traversed_graph_content",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_citations",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_answer",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_trace",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_TWO_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-one"
+      },
+      "mode": "graph",
+      "check_id": "own_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_contain": "PROJECT_ONE_ONLY",
+        "present": true
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": null,
+      "check_id": "store_rows_visible_in_scope",
+      "status": "passed",
+      "observed": {
+        "visible_passages": 1,
+        "rows_with_other_marker": 0
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_traversed_graph_content",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_citations",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_answer",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "vector",
+      "check_id": "no_foreign_marker_in_trace",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "vector",
+      "check_id": "own_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_contain": "PROJECT_TWO_ONLY",
+        "present": true
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_traversed_graph_content",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_citations",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_answer",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "graph",
+      "check_id": "no_foreign_marker_in_trace",
+      "status": "passed",
+      "observed": {
+        "must_not_contain": "PROJECT_ONE_ONLY",
+        "present": false
+      }
+    },
+    {
+      "scope": {
+        "tenant_id": "fixture-tenant",
+        "project_id": "project-two"
+      },
+      "mode": "graph",
+      "check_id": "own_marker_in_selected_evidence",
+      "status": "passed",
+      "observed": {
+        "must_contain": "PROJECT_TWO_ONLY",
+        "present": true
+      }
+    }
+  ],
+  "failures": [],
+  "passed": true,
+  "commands": [
+    "uv run potency isolation"
+  ],
+  "artifacts": {
+    "answers": "isolation/answers.jsonl",
+    "traces": "isolation/traces.jsonl"
+  }
+}

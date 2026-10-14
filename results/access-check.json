@@ -1,0 +1,40 @@
+{
+  "package_edition": "2026-09-21-potency-rag-v2",
+  "corpus_snapshot": "potency-assignment-2026-09-21-v3",
+  "embedding": {
+    "provider": "local fastembed (ONNX Runtime, CPU)",
+    "model": "BAAI/bge-base-en-v1.5",
+    "dimension": 768,
+    "finite_nonempty": true,
+    "success_at": "2026-10-14T06:56:08.242176+00:00"
+  },
+  "generation": {
+    "provider": "Anthropic Messages API",
+    "requested_model": "claude-sonnet-5-5",
+    "response_model": "claude-sonnet-5-5",
+    "nonempty_content": true,
+    "sanitized_response_excerpt": "Acknowledged: a fictional assay measuring a fictional attribute, so the access check is confirmed.",
+    "usage": {
+      "input_tokens": 43,
+      "output_tokens": 36
+    },
+    "success_at": "2026-10-14T06:56:16.458896+00:00"
+  },
+  "structured_output": {
+    "mechanism": "output_config.json_schema",
+    "note": "forced tool use is tried first; models that reject tool_choice=tool use output_config json_schema with the same schema. Outputs are validated locally (Pydantic / verifier).",
+    "capability": "json_schema",
+    "observed": {
+      "ok": true,
+      "word": "fixture"
+    },
+    "usage": {
+      "input_tokens": 242,
+      "output_tokens": 18,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "success_at": "2026-10-14T06:56:20.523271+00:00"
+  },
+  "credentials": "ANTHROPIC_API_KEY read from git-ignored .env; value never written to artifacts"
+}

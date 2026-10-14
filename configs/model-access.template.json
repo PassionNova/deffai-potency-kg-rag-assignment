@@ -1,49 +1,49 @@
 {
   "package_edition": "2026-09-21-potency-rag-v2",
-  "setup_status": "not_configured",
-  "access_mode": null,
+  "setup_status": "configured_and_verified (see results/access-check.json)",
+  "access_mode": "hybrid: local embedding model (approved) + team-provided Anthropic API for generation/extraction",
   "embedding": {
-    "provider": null,
-    "endpoint_or_local_command": null,
-    "api_style_and_version": null,
-    "model_id_and_version": null,
-    "dimensions": null,
-    "auth_scheme": null,
-    "credential_env_var": null,
-    "max_input_tokens": null,
-    "max_batch_size": null,
-    "requests_per_minute": null,
-    "tokens_per_minute": null,
-    "max_concurrent_requests": null,
-    "timeout_seconds": null,
-    "sanitized_smoke_request_instructions": null
+    "provider": "local (fastembed / ONNX Runtime, CPU)",
+    "endpoint_or_local_command": "in-process: fastembed.TextEmbedding('BAAI/bge-base-en-v1.5'); first use downloads Qdrant/bge-base-en-v1.5-onnx-Q into FASTEMBED_CACHE_PATH",
+    "api_style_and_version": "python library fastembed 0.9.0, onnxruntime 1.31.0",
+    "model_id_and_version": "BAAI/bge-base-en-v1.5 (ONNX export Qdrant/bge-base-en-v1.5-onnx-Q, snapshot 199291fdd1aa89faf9c20b722dc72ad5e17aa0d0)",
+    "dimensions": 768,
+    "auth_scheme": "none (local)",
+    "credential_env_var": "none",
+    "max_input_tokens": 512,
+    "max_batch_size": "32 texts per ONNX batch (implementation choice; no provider limit for a local model)",
+    "requests_per_minute": "not applicable (local, no provider rate limit)",
+    "tokens_per_minute": "not applicable (local, bounded by CPU)",
+    "max_concurrent_requests": "not applicable (single in-process model; POTENCY_EMBED_THREADS=4)",
+    "timeout_seconds": "not applicable (local)",
+    "sanitized_smoke_request_instructions": "uv run potency smoke  (embeds two synthetic sentences; checks 768 dims and unit norm)"
   },
   "generation": {
-    "provider": null,
-    "endpoint_or_local_command": null,
-    "api_style_and_version": null,
-    "model_id_and_version": null,
-    "auth_scheme": null,
-    "credential_env_var": null,
-    "context_window_tokens": null,
-    "max_output_tokens": null,
-    "requests_per_minute": null,
-    "tokens_per_minute": null,
-    "max_concurrent_requests": null,
-    "timeout_seconds": null,
-    "structured_output": null,
-    "usage_reporting": null,
-    "sanitized_smoke_request_instructions": null
+    "provider": "Anthropic (team-provided API key)",
+    "endpoint_or_local_command": "https://api.anthropic.com/v1/messages via anthropic python SDK",
+    "api_style_and_version": "Anthropic Messages API, anthropic-version 2023-06-01, python SDK 1.13.0",
+    "model_id_and_version": "claude-sonnet-5-5 (supplied by DeffAI; set via ANTHROPIC_MODEL in .env; response model recorded in results/access-check.json and every trace)",
+    "auth_scheme": "x-api-key header",
+    "credential_env_var": "ANTHROPIC_API_KEY",
+    "context_window_tokens": "not confirmed by DeffAI; prompts are designed to stay below 30k input tokens",
+    "max_output_tokens": "not confirmed by DeffAI; implementation requests at most 12000 (extraction) / 8000 (answers; raised from 4000 after one truncated answer)",
+    "requests_per_minute": "not confirmed by DeffAI; client limits concurrency to POTENCY_EXTRACTION_CONCURRENCY=4 and retries 429/5xx with SDK backoff (max_retries=6)",
+    "tokens_per_minute": "not confirmed by DeffAI",
+    "max_concurrent_requests": "not confirmed by DeffAI; implementation uses <= 4",
+    "timeout_seconds": "300 per request (client setting)",
+    "structured_output": "json_schema (claude-sonnet-5-5 rejects forced tool_choice, so output_config.format={type: json_schema} is used with the same closed schema; outputs re-validated locally)",
+    "usage_reporting": "response.usage input/output/cache tokens recorded per call in usage_ledger and results/usage.json",
+    "sanitized_smoke_request_instructions": "uv run potency smoke  (one plain synthetic prompt + one structured-output call: forced tool use is attempted, and the json_schema output_config fallback is what succeeded; writes results/access-check.json)"
   },
   "credentials": {
-    "secure_delivery_method": null,
-    "scope_and_expiry": null,
+    "secure_delivery_method": "Delivered by DeffAI out of band; placed by the candidate in the git-ignored .env file",
+    "scope_and_expiry": "not stated to candidate",
     "note": "Record delivery instructions and environment-variable names only; never store a credential value here."
   },
   "budget": {
     "currency": "USD",
-    "candidate_total_limit": null,
-    "token_or_service_sub_limits": null,
+    "candidate_total_limit": "not stated in this sheet by DeffAI; candidate-side hard guard POTENCY_MAX_USD=40 stops model calls when the estimated spend reaches it",
+    "token_or_service_sub_limits": "none stated",
     "included_usage": [
       "embedding",
       "extraction",
@@ -51,46 +51,47 @@
       "evaluation",
       "retries"
     ],
-    "usage_visibility": null,
-    "expiry_or_reset": null,
-    "near_limit_and_exhaustion_procedure": null,
+    "usage_visibility": "local ledger (usage_ledger/model_spend tables) + results/usage.json; provider console not available to candidate",
+    "expiry_or_reset": "not stated",
+    "near_limit_and_exhaustion_procedure": "Budget guard raises BudgetExceeded before a call; extraction records budget_stop and the run is reported incomplete. Contact DeffAI before any further spend.",
     "personal_top_up_required": false
   },
   "api_constraints": {
-    "region_or_project": null,
-    "retry_and_backoff_guidance": null,
-    "network_or_allowlist_requirements": null,
-    "other_constraints": null
+    "region_or_project": "not stated",
+    "retry_and_backoff_guidance": "SDK exponential backoff on 429/5xx, max_retries=6; failed batches are recorded, not hidden",
+    "network_or_allowlist_requirements": "outbound HTTPS to api.anthropic.com; huggingface.co once for the local model download",
+    "other_constraints": "Sampling parameters (temperature) are not accepted by the SDK 1.13 Messages API; default sampling is used, so repeated runs can differ"
   },
   "local_alternative": {
-    "approval_status": "pending",
-    "embedding_model_and_version": null,
-    "generation_model_version_quantization": null,
-    "license_and_download_source": null,
-    "hardware_requirements_and_provider": null,
-    "startup_instructions": null,
-    "fallback_if_unavailable": null
+    "approval_status": "approved (bge-base embedding, confirmed by DeffAI)",
+    "embedding_model_and_version": "BAAI/bge-base-en-v1.5 (768-d), ONNX via fastembed",
+    "generation_model_version_quantization": "none approved; generation uses the hosted model only",
+    "license_and_download_source": "MIT; Hugging Face Qdrant/bge-base-en-v1.5-onnx-Q",
+    "hardware_requirements_and_provider": "CPU only, ~0.5 GB RAM for the model; full 791-record index ~20-30 min on a 4-thread laptop CPU",
+    "startup_instructions": "uv sync; first `uv run potency index` downloads the model into .cache/fastembed",
+    "fallback_if_unavailable": "If hosted generation is unavailable: pause timed work and contact DeffAI; do not switch models silently"
   },
   "support": {
-    "primary_name": null,
-    "primary_channel": null,
-    "backup_name_and_channel": null,
-    "response_window": null
+    "primary_name": "DeffAI hiring contact (named in the assignment email; not recorded here)",
+    "primary_channel": "email thread for this assignment",
+    "backup_name_and_channel": "not stated",
+    "response_window": "not stated"
   },
   "readiness": {
-    "complete_materials_confirmed": false,
-    "paid_terms_confirmed": false,
-    "embedding_verified_at": null,
-    "generation_verified_at": null,
-    "candidate_acknowledged_constraints": false,
-    "active_work_start_at": null,
-    "submission_deadline": null
+    "complete_materials_confirmed": true,
+    "paid_terms_confirmed": true,
+    "embedding_verified_at": "2026-10-14T06:56:08Z",
+    "generation_verified_at": "2026-10-14T06:56:20Z",
+    "candidate_acknowledged_constraints": true,
+    "active_work_start_at": "2026-10-14T02:48Z (counted conservatively from repository init). The access smoke checks ran at 06:56Z, after implementation, while the model ID was being confirmed. No hosted-model calls were made before then; the local bge-base index was built at about 06:15Z. See results/time-log.md.",
+    "submission_deadline": "not stated to candidate in this sheet"
   },
   "notes": [
     "Team completes this access sheet before the timed exercise. Unset does not mean unlimited or supported.",
     "For a documented non-applicable/no-limit field use an explicit explanation; do not invent a number.",
     "Allowed structured_output descriptions: json_schema, json_mode, none. All are acceptable when documented.",
     "The original flat model fields in casgevy-potency.json may mirror these settings; this completed sheet is the access authority when services differ.",
-    "The local alternative must be approved and verified before switching; if unavailable, document the hosted recovery plan."
+    "The local alternative must be approved and verified before switching; if unavailable, document the hosted recovery plan.",
+    "Verification timestamps are written by `potency smoke` into results/access-check.json; this sheet is updated from that file."
   ]
 }

@@ -1,0 +1,1041 @@
+{
+  "corpus_snapshot": "potency-assignment-2026-09-21-v3",
+  "scope": {
+    "tenant_id": "public-fda",
+    "project_id": "casgevy-potency"
+  },
+  "index_version": "idx-9643b8f06092",
+  "count_semantics": "Top-level imported/unchanged/failed/omitted are the initial import run that loaded the store. restart_reimport shows the latest re-import (expected: all unchanged, zero new embeddings). Ingestion/indexing counts are separate from semantic_extraction_coverage.",
+  "imported": 791,
+  "unchanged": 0,
+  "updated": 0,
+  "failed": 0,
+  "omitted": 0,
+  "records_read": 791,
+  "reconciled": true,
+  "complete_import": true,
+  "errors": [],
+  "initial_import_run": {
+    "run_id": "import-20261014T054831Z-3029b1",
+    "started_at": "2026-10-14 05:48:31.065893+00:00",
+    "counts": {
+      "failed": 0,
+      "omitted": 0,
+      "updated": 0,
+      "imported": 791,
+      "unchanged": 0,
+      "reconciled": true,
+      "records_read": 791
+    }
+  },
+  "restart_reimport": {
+    "run_id": "import-20261014T054842Z-7b8a70",
+    "started_at": "2026-10-14 05:48:42.519738+00:00",
+    "counts": {
+      "failed": 0,
+      "omitted": 0,
+      "updated": 0,
+      "imported": 0,
+      "unchanged": 791,
+      "reconciled": true,
+      "records_read": 791
+    },
+    "latest_index_build": {
+      "dims": 768,
+      "chunks": 1203,
+      "run_id": "index-20261014T065822Z-2ad415",
+      "elapsed_s": 0.31,
+      "index_version": "idx-9643b8f06092",
+      "chunker_version": "ws-window-v1:1500/200",
+      "embedding_model": "BAAI/bge-base-en-v1.5",
+      "passages_indexed": 791,
+      "embeddings_computed": 0,
+      "embedding_cache_hits": 1203,
+      "embedder_is_test_double": false,
+      "passages_with_multiple_chunks": 316
+    },
+    "is_distinct_from_initial": true
+  },
+  "index_builds": [
+    {
+      "run_id": "index-20261014T065330Z-367532",
+      "created_at": "2026-10-14 06:53:29.512762+00:00",
+      "index_version": "idx-9643b8f06092",
+      "embeddings_computed": 1194,
+      "embedding_cache_hits": 0,
+      "chunks": 1203,
+      "passages_indexed": 791,
+      "elapsed_s": 1417.51
+    },
+    {
+      "run_id": "index-20261014T065822Z-2ad415",
+      "created_at": "2026-10-14 06:58:22.467218+00:00",
+      "index_version": "idx-9643b8f06092",
+      "embeddings_computed": 0,
+      "embedding_cache_hits": 1203,
+      "chunks": 1203,
+      "passages_indexed": 791,
+      "elapsed_s": 0.31
+    }
+  ],
+  "manifest_check": {
+    "ok": true,
+    "source_mismatches": [],
+    "stored_record_count": 791,
+    "stored_source_count": 24,
+    "expected_record_count": 791,
+    "expected_source_count": 24,
+    "record_file_sha256_matches": true
+  },
+  "corrections_check": [
+    {
+      "kind": "heading_reading_order",
+      "passage_id": "casgevy-125787-scd-approval-letter:page-0002",
+      "stored_sha256": "bea8f5ebe10211747fa6c729452fc02022ed56d4c850136eb786d61da5579e1a",
+      "previous_text_in_store": false,
+      "corrected_text_in_store": true,
+      "expected_corrected_sha256": "bea8f5ebe10211747fa6c729452fc02022ed56d4c850136eb786d61da5579e1a"
+    }
+  ],
+  "indexing": {
+    "index_version": "idx-9643b8f06092",
+    "embedding_model": "BAAI/bge-base-en-v1.5",
+    "dims": 768,
+    "chunker_version": "ws-window-v1:1500/200",
+    "stats": {
+      "dims": 768,
+      "chunks": 1203,
+      "elapsed_s": 1417.51,
+      "chunker_version": "ws-window-v1:1500/200",
+      "embedding_model": "BAAI/bge-base-en-v1.5",
+      "passages_indexed": 791,
+      "embeddings_computed": 1194,
+      "embedding_cache_hits": 0,
+      "embedder_is_test_double": false,
+      "passages_with_multiple_chunks": 316
+    },
+    "all_records_indexed": true
+  },
+  "graph": {
+    "graph_build_id": "graph-525e582cd7f4",
+    "stats": {
+      "edges": 6470,
+      "nodes": 4679,
+      "edge_types": {
+        "about": 931,
+        "cites": 15,
+        "part_of": 9,
+        "used_as": 81,
+        "measures": 76,
+        "supports": 27,
+        "applies_to": 388,
+        "revised_by": 1,
+        "proposed_in": 6,
+        "concluded_in": 22,
+        "next_passage": 767,
+        "requested_in": 23,
+        "supported_by": 584,
+        "contains_passage": 791,
+        "document_subject": 57,
+        "contains_redaction": 2692
+      },
+      "node_types": {
+        "Assay": 147,
+        "Product": 24,
+        "Guidance": 5,
+        "AssayRole": 5,
+        "Assertion": 584,
+        "Redaction": 2692,
+        "Indication": 21,
+        "Regulation": 30,
+        "Application": 4,
+        "SourcePassage": 791,
+        "SourceDocument": 24,
+        "PotencyStrategy": 22,
+        "ReviewConclusion": 50,
+        "MeasuredAttribute": 224,
+        "RegulatoryInteraction": 56
+      },
+      "evidence_refs": 8858,
+      "graph_build_id": "graph-525e582cd7f4"
+    },
+    "source_document_nodes": 24,
+    "all_sources_have_document_node": true
+  },
+  "semantic_extraction_coverage": {
+    "run_id": "extract-20261014T070833Z-153c85",
+    "extractor": {
+      "actor": "llm:claude-sonnet-5-5",
+      "model": "claude-sonnet-5-5",
+      "version": "extractor-v1",
+      "is_test_double": false,
+      "prompt_version": "extraction_v1"
+    },
+    "selection_policy": {
+      "terms": {
+        "cmc": 1.2,
+        "hbf": 1.0,
+        " ir ": 1.5,
+        "cd34": 1.0,
+        "600.3": 2.0,
+        "assay": 1.5,
+        "indel": 1.0,
+        "shall": 0.6,
+        "(b)(4)": 0.8,
+        "610.10": 3.0,
+        "agreed": 1.0,
+        "allele": 0.6,
+        "commit": 0.8,
+        "matrix": 1.2,
+        "purity": 0.8,
+        "redact": 0.5,
+        "viable": 0.6,
+        "(b) (4)": 0.8,
+        "editing": 1.0,
+        "potency": 3.0,
+        "release": 1.2,
+        "request": 0.8,
+        "approval": 0.5,
+        "bioassay": 2.0,
+        "comparab": 1.0,
+        "correlat": 1.5,
+        "guidance": 0.8,
+        "identity": 1.0,
+        "reviewer": 0.5,
+        "strength": 0.8,
+        "qualified": 0.8,
+        "recommend": 0.6,
+        "requested": 1.0,
+        "stability": 1.0,
+        "surrogate": 1.5,
+        "validated": 1.0,
+        "viability": 0.8,
+        "validation": 1.0,
+        "lot release": 2.0,
+        "drug product": 0.8,
+        "postmarketing": 1.0,
+        "potency assay": 3.0,
+        "specification": 1.5,
+        "characterization": 1.5,
+        "clinical outcome": 1.2,
+        "fetal hemoglobin": 1.0,
+        "potency assurance": 3.0,
+        "acceptance criteri": 2.0,
+        "vector copy number": 1.2,
+        "biological activity": 2.0,
+        "information request": 2.0,
+        "mechanism of action": 2.0,
+        "chemistry, manufacturing": 1.5
+      },
+      "version": "relevance-policy-v1",
+      "min_chars": 80,
+      "min_score": 2.0,
+      "batch_size": 3,
+      "authority_weights": {
+        "sbra": 1.2,
+        "default": 1.0,
+        "regulation": 1.5,
+        "draft_guidance": 1.3,
+        "final_guidance": 1.3,
+        "approval_action": 1.1,
+        "fda_review_record": 0.9,
+        "synthetic_fixture": 1.0,
+        "fda_commitment_letter": 0.6,
+        "fda_discipline_review": 1.2,
+        "fda_review_communication": 1.2
+      },
+      "max_selected_total": 240,
+      "max_selected_per_source": 30,
+      "min_selected_per_source": 1,
+      "max_assertions_per_passage": 6
+    },
+    "selection_method": "Every current passage is scored with the generic relevance policy (configs/extraction-rules.yaml); passages at or above min_score are selected, capped per source and in total, and each source keeps its top-scoring passage. Skipped passages keep structural coverage (SourcePassage node, embeddings, redaction placeholders) but receive no semantic assertions.",
+    "totals": {
+      "passages": 791,
+      "selected": 240,
+      "outcome_cached": 231,
+      "outcome_skipped": 551,
+      "outcome_extracted": 9,
+      "assertions_accepted": 584,
+      "assertions_rejected": 44,
+      "skip_per_source_cap": 280,
+      "skip_total_budget_cap": 106,
+      "skip_below_relevance_threshold": 90,
+      "skip_too_short_for_semantic_content": 75
+    },
+    "complete": true
+  },
+  "per_source": {
+    "casgevy-125785-analytical-method-review": {
+      "manifest_passage_count": 18,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 18,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 18
+      },
+      "stored_passages": 18,
+      "current_passages": 18,
+      "indexed_chunks": 20,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 18,
+        "selected": 10,
+        "outcome:extracted": 7,
+        "outcome:skipped": 8,
+        "skip_reason:too_short_for_semantic_content": 4,
+        "outcome:cached": 3,
+        "skip_reason:below_relevance_threshold": 1,
+        "skip_reason:total_budget_cap": 3,
+        "assertions_accepted": 29,
+        "assertions_rejected": 1
+      }
+    },
+    "casgevy-125785-approval-letter": {
+      "manifest_passage_count": 7,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 7,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 7
+      },
+      "stored_passages": 7,
+      "current_passages": 7,
+      "indexed_chunks": 10,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 7,
+        "selected": 2,
+        "outcome:skipped": 5,
+        "skip_reason:total_budget_cap": 2,
+        "outcome:extracted": 2,
+        "skip_reason:below_relevance_threshold": 3,
+        "assertions_accepted": 5,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-bioresearch-monitoring-final-review-memo-casgevy": {
+      "manifest_passage_count": 2,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 2,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 2
+      },
+      "stored_passages": 2,
+      "current_passages": 2,
+      "indexed_chunks": 2,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 2,
+        "selected": 1,
+        "outcome:skipped": 1,
+        "skip_reason:below_relevance_threshold": 1,
+        "outcome:cached": 1,
+        "assertions_accepted": 0,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-cber-bioinformatics-bla-review-memo-casgevy": {
+      "manifest_passage_count": 53,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 53,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 53
+      },
+      "stored_passages": 53,
+      "current_passages": 53,
+      "indexed_chunks": 67,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 53,
+        "selected": 8,
+        "outcome:skipped": 45,
+        "skip_reason:per_source_cap": 13,
+        "outcome:cached": 8,
+        "skip_reason:too_short_for_semantic_content": 10,
+        "skip_reason:total_budget_cap": 21,
+        "skip_reason:below_relevance_threshold": 1,
+        "assertions_accepted": 14,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-cber-dmpq-cmc-facility-bla-review-memo-casgevy": {
+      "manifest_passage_count": 93,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 93,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 93
+      },
+      "stored_passages": 93,
+      "current_passages": 93,
+      "indexed_chunks": 108,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 93,
+        "selected": 21,
+        "outcome:skipped": 72,
+        "skip_reason:per_source_cap": 49,
+        "outcome:cached": 21,
+        "skip_reason:too_short_for_semantic_content": 14,
+        "skip_reason:total_budget_cap": 9,
+        "assertions_accepted": 27,
+        "assertions_rejected": 1
+      }
+    },
+    "casgevy-125785-clinical-pharmacology-bla-review-casgevy": {
+      "manifest_passage_count": 64,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 64,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 64
+      },
+      "stored_passages": 64,
+      "current_passages": 64,
+      "indexed_chunks": 90,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 64,
+        "selected": 13,
+        "outcome:skipped": 51,
+        "skip_reason:total_budget_cap": 17,
+        "skip_reason:per_source_cap": 26,
+        "outcome:cached": 13,
+        "skip_reason:too_short_for_semantic_content": 8,
+        "assertions_accepted": 39,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-cmc-review": {
+      "manifest_passage_count": 140,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 140,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 140
+      },
+      "stored_passages": 140,
+      "current_passages": 140,
+      "indexed_chunks": 162,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 140,
+        "selected": 30,
+        "outcome:skipped": 110,
+        "skip_reason:per_source_cap": 85,
+        "outcome:cached": 30,
+        "skip_reason:too_short_for_semantic_content": 25,
+        "assertions_accepted": 81,
+        "assertions_rejected": 2
+      }
+    },
+    "casgevy-125785-employee-officer-list-casgevy": {
+      "manifest_passage_count": 2,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 2,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 2
+      },
+      "stored_passages": 2,
+      "current_passages": 2,
+      "indexed_chunks": 2,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 2,
+        "selected": 0,
+        "outcome:skipped": 2,
+        "skip_reason:below_relevance_threshold": 1,
+        "skip_reason:too_short_for_semantic_content": 1,
+        "assertions_accepted": 0,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-labeling-review-casgevy": {
+      "manifest_passage_count": 9,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 9,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 9
+      },
+      "stored_passages": 9,
+      "current_passages": 9,
+      "indexed_chunks": 12,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 9,
+        "selected": 1,
+        "outcome:cached": 1,
+        "outcome:skipped": 8,
+        "skip_reason:below_relevance_threshold": 7,
+        "skip_reason:too_short_for_semantic_content": 1,
+        "assertions_accepted": 0,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-late-cycle-summary": {
+      "manifest_passage_count": 9,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 9,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 9
+      },
+      "stored_passages": 9,
+      "current_passages": 9,
+      "indexed_chunks": 11,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 9,
+        "selected": 2,
+        "outcome:skipped": 7,
+        "skip_reason:below_relevance_threshold": 4,
+        "outcome:cached": 2,
+        "skip_reason:total_budget_cap": 3,
+        "assertions_accepted": 7,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-mid-cycle-summary": {
+      "manifest_passage_count": 10,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 10,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 10
+      },
+      "stored_passages": 10,
+      "current_passages": 10,
+      "indexed_chunks": 13,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 10,
+        "selected": 5,
+        "outcome:skipped": 5,
+        "skip_reason:below_relevance_threshold": 4,
+        "outcome:cached": 5,
+        "skip_reason:total_budget_cap": 1,
+        "assertions_accepted": 15,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-pharmacology-toxicology-review-casgevy": {
+      "manifest_passage_count": 74,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 74,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 74
+      },
+      "stored_passages": 74,
+      "current_passages": 74,
+      "indexed_chunks": 101,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 74,
+        "selected": 30,
+        "outcome:cached": 30,
+        "outcome:skipped": 44,
+        "skip_reason:too_short_for_semantic_content": 6,
+        "skip_reason:per_source_cap": 38,
+        "assertions_accepted": 73,
+        "assertions_rejected": 2
+      }
+    },
+    "casgevy-125785-pharmacovigilance-plan-review-memo-casgevy": {
+      "manifest_passage_count": 40,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 40,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 40
+      },
+      "stored_passages": 40,
+      "current_passages": 40,
+      "indexed_chunks": 56,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 40,
+        "selected": 3,
+        "outcome:skipped": 37,
+        "skip_reason:below_relevance_threshold": 21,
+        "outcome:cached": 3,
+        "skip_reason:total_budget_cap": 6,
+        "skip_reason:per_source_cap": 10,
+        "assertions_accepted": 5,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125785-statistical-review-casgevy": {
+      "manifest_passage_count": 44,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 44,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 44
+      },
+      "stored_passages": 44,
+      "current_passages": 44,
+      "indexed_chunks": 56,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 44,
+        "selected": 1,
+        "outcome:skipped": 43,
+        "skip_reason:below_relevance_threshold": 25,
+        "skip_reason:total_budget_cap": 4,
+        "skip_reason:too_short_for_semantic_content": 2,
+        "outcome:cached": 1,
+        "skip_reason:per_source_cap": 12,
+        "assertions_accepted": 2,
+        "assertions_rejected": 0
+      }
+    },
+    "casgevy-125787-scd-approval-letter": {
+      "manifest_passage_count": 10,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 10,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 10
+      },
+      "stored_passages": 10,
+      "current_passages": 10,
+      "indexed_chunks": 20,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 10,
+        "selected": 4,
+        "outcome:skipped": 6,
+        "skip_reason:total_budget_cap": 4,
+        "outcome:cached": 4,
+        "skip_reason:below_relevance_threshold": 2,
+        "assertions_accepted": 11,
+        "assertions_rejected": 0
+      }
+    },
+    "cfr-21-600-3": {
+      "manifest_passage_count": 1,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 1,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 1
+      },
+      "stored_passages": 1,
+      "current_passages": 1,
+      "indexed_chunks": 8,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 1,
+        "selected": 1,
+        "outcome:cached": 1,
+        "assertions_accepted": 3,
+        "assertions_rejected": 0
+      }
+    },
+    "cfr-21-610-10": {
+      "manifest_passage_count": 1,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 1,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 1
+      },
+      "stored_passages": 1,
+      "current_passages": 1,
+      "indexed_chunks": 1,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 1,
+        "selected": 1,
+        "outcome:cached": 1,
+        "assertions_accepted": 1,
+        "assertions_rejected": 0
+      }
+    },
+    "guidance-cgt-potency-2011": {
+      "manifest_passage_count": 19,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 19,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 19
+      },
+      "stored_passages": 19,
+      "current_passages": 19,
+      "indexed_chunks": 49,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 19,
+        "selected": 19,
+        "outcome:cached": 19,
+        "assertions_accepted": 55,
+        "assertions_rejected": 1
+      }
+    },
+    "guidance-cgt-potency-assurance-2023-draft": {
+      "manifest_passage_count": 27,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 27,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 27
+      },
+      "stored_passages": 27,
+      "current_passages": 27,
+      "indexed_chunks": 70,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 27,
+        "selected": 26,
+        "outcome:cached": 26,
+        "outcome:skipped": 1,
+        "skip_reason:too_short_for_semantic_content": 1,
+        "assertions_accepted": 65,
+        "assertions_rejected": 36
+      }
+    },
+    "policy-pdufa7-goals-2022": {
+      "manifest_passage_count": 71,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 71,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 71
+      },
+      "stored_passages": 71,
+      "current_passages": 71,
+      "indexed_chunks": 165,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 71,
+        "selected": 2,
+        "outcome:skipped": 69,
+        "skip_reason:total_budget_cap": 14,
+        "skip_reason:below_relevance_threshold": 14,
+        "skip_reason:per_source_cap": 41,
+        "outcome:cached": 2,
+        "assertions_accepted": 0,
+        "assertions_rejected": 0
+      }
+    },
+    "sbra-casgevy-scd-2023-12": {
+      "manifest_passage_count": 22,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 22,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 22
+      },
+      "stored_passages": 22,
+      "current_passages": 22,
+      "indexed_chunks": 46,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 22,
+        "selected": 17,
+        "outcome:skipped": 5,
+        "skip_reason:total_budget_cap": 4,
+        "outcome:cached": 17,
+        "skip_reason:below_relevance_threshold": 1,
+        "assertions_accepted": 44,
+        "assertions_rejected": 0
+      }
+    },
+    "sbra-casgevy-tdt-2024-01": {
+      "manifest_passage_count": 39,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 39,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 39
+      },
+      "stored_passages": 39,
+      "current_passages": 39,
+      "indexed_chunks": 57,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 39,
+        "selected": 19,
+        "outcome:skipped": 20,
+        "skip_reason:total_budget_cap": 11,
+        "outcome:cached": 19,
+        "skip_reason:per_source_cap": 6,
+        "skip_reason:too_short_for_semantic_content": 3,
+        "assertions_accepted": 45,
+        "assertions_rejected": 0
+      }
+    },
+    "sbra-lyfgenia-2023-12": {
+      "manifest_passage_count": 17,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 17,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 17
+      },
+      "stored_passages": 17,
+      "current_passages": 17,
+      "indexed_chunks": 35,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 17,
+        "selected": 12,
+        "outcome:skipped": 5,
+        "skip_reason:total_budget_cap": 3,
+        "outcome:cached": 12,
+        "skip_reason:below_relevance_threshold": 2,
+        "assertions_accepted": 26,
+        "assertions_rejected": 1
+      }
+    },
+    "sbra-zynteglo-2022-08": {
+      "manifest_passage_count": 19,
+      "import_outcomes_initial_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 19,
+        "unchanged": 0
+      },
+      "import_outcomes_latest_run": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 19
+      },
+      "stored_passages": 19,
+      "current_passages": 19,
+      "indexed_chunks": 42,
+      "source_document_node": true,
+      "semantic_extraction": {
+        "passages": 19,
+        "selected": 12,
+        "outcome:skipped": 7,
+        "skip_reason:total_budget_cap": 4,
+        "outcome:cached": 12,
+        "skip_reason:below_relevance_threshold": 3,
+        "assertions_accepted": 37,
+        "assertions_rejected": 0
+      }
+    }
+  },
+  "import_run_history": [
+    {
+      "run_id": "import-20261014T054831Z-3029b1",
+      "started_at": "2026-10-14 05:48:31.065893+00:00",
+      "counts": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 791,
+        "unchanged": 0,
+        "reconciled": true,
+        "records_read": 791
+      }
+    },
+    {
+      "run_id": "import-20261014T054842Z-7b8a70",
+      "started_at": "2026-10-14 05:48:42.519738+00:00",
+      "counts": {
+        "failed": 0,
+        "omitted": 0,
+        "updated": 0,
+        "imported": 0,
+        "unchanged": 791,
+        "reconciled": true,
+        "records_read": 791
+      }
+    }
+  ]
+}

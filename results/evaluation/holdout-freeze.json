@@ -1,0 +1,16 @@
+{
+  "frozen_at": "2026-10-14T07:14:11.499527+00:00",
+  "sha256": "4725bd160f0823ddcbf993e080ce9e76602f44a27c6d737e592611ce61d803e3",
+  "hash_method": "sha256 over sorted canonical JSON lines (sort_keys) of split=holdout cases",
+  "case_ids": [
+    "EV-H01-false-correlation-premise",
+    "EV-H02-shelf-life-potency-gap",
+    "EV-H03-scd-scope-pmc"
+  ],
+  "code_version": {
+    "package": "potency 0.1.0",
+    "git_commit": "b9a7f8014b6a28c19bd2a4ea5c3449d9c1c158ad",
+    "uncommitted_changes": true
+  },
+  "note": "Frozen before the final evaluation run. Holdout cases are not used for prompt/retrieval tuning."
+}

@@ -1,0 +1,73 @@
+{
+  "run_id": "fx-source-correction-after-20261014T073001Z-fc1dbb",
+  "scenario_id": "source-correction",
+  "stage": "after",
+  "operation": "replace_source_revision",
+  "import": {
+    "imported": 1,
+    "unchanged": 0,
+    "updated": 0,
+    "failed": 0,
+    "omitted": 0,
+    "records_read": 1,
+    "reconciled": true
+  },
+  "supersession": [
+    {
+      "superseded_version": "fixture-tenant/source-correction/assay-attribute-note@fixture-v1",
+      "replaced_by": "fixture-tenant/source-correction/assay-attribute-note@fixture-v2",
+      "import_run_id": "fx-import-after-20261014T073001Z-492218"
+    }
+  ],
+  "index": {
+    "passages_indexed": 2,
+    "chunks": 2,
+    "passages_with_multiple_chunks": 0,
+    "embeddings_computed": 1,
+    "embedding_cache_hits": 1,
+    "embedding_model": "BAAI/bge-base-en-v1.5",
+    "embedder_is_test_double": false,
+    "dims": 768,
+    "chunker_version": "ws-window-v1:1500/200",
+    "elapsed_s": 0.19,
+    "index_version": "idx-239815b3b1cf"
+  },
+  "extraction": {
+    "passages": 1,
+    "selected": 1,
+    "outcome_extracted": 1,
+    "assertions_accepted": 2,
+    "assertions_rejected": 0
+  },
+  "graph": {
+    "graph_build_id": "graph-f780f64b800e",
+    "nodes": 16,
+    "edges": 41,
+    "evidence_refs": 46,
+    "node_types": {
+      "Assay": 1,
+      "AssayRole": 4,
+      "Assertion": 4,
+      "Indication": 1,
+      "MeasuredAttribute": 2,
+      "Product": 1,
+      "SourceDocument": 1,
+      "SourcePassage": 2
+    },
+    "edge_types": {
+      "about": 10,
+      "applies_to": 12,
+      "contains_passage": 2,
+      "document_subject": 2,
+      "measures": 2,
+      "supersedes": 1,
+      "supported_by": 4,
+      "used_as": 8
+    },
+    "assertions": 4,
+    "contradictions": 0,
+    "extractor_version": "extractor-v1",
+    "extraction_model": "claude-sonnet-5-5"
+  },
+  "scope_reset_before_scenario": null
+}

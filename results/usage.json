@@ -1,0 +1,109 @@
+{
+  "pricing_assumption_usd_per_mtok": {
+    "input": 2.0,
+    "output": 10.0,
+    "cache_write_multiplier": 1.25,
+    "cache_read_multiplier": 0.1
+  },
+  "note": "Estimated from provider-reported token usage; not an invoice.",
+  "scopes": {
+    "public-fda/casgevy-potency": [
+      {
+        "purpose": "answer",
+        "model": "claude-sonnet-5-5",
+        "calls": 44,
+        "input_tokens": 149302,
+        "output_tokens": 74986,
+        "cache_read_tokens": 58422,
+        "cache_write_tokens": 2782,
+        "estimated_usd": 1.0670950000000001
+      },
+      {
+        "purpose": "extraction",
+        "model": "claude-sonnet-5-5",
+        "calls": 80,
+        "input_tokens": 210011,
+        "output_tokens": 192174,
+        "cache_read_tokens": 227924,
+        "cache_write_tokens": 11996,
+        "estimated_usd": 2.4173519999999993
+      }
+    ],
+    "fixture-tenant/project-one": [
+      {
+        "purpose": "answer",
+        "model": "claude-sonnet-5-5",
+        "calls": 2,
+        "input_tokens": 322,
+        "output_tokens": 535,
+        "cache_read_tokens": 2782,
+        "cache_write_tokens": 0,
+        "estimated_usd": 0.00655
+      }
+    ],
+    "fixture-tenant/project-two": [
+      {
+        "purpose": "answer",
+        "model": "claude-sonnet-5-5",
+        "calls": 2,
+        "input_tokens": 320,
+        "output_tokens": 679,
+        "cache_read_tokens": 2782,
+        "cache_write_tokens": 0,
+        "estimated_usd": 0.007986
+      }
+    ],
+    "fixture-tenant/source-correction": [
+      {
+        "purpose": "answer",
+        "model": "claude-sonnet-5-5",
+        "calls": 2,
+        "input_tokens": 481,
+        "output_tokens": 810,
+        "cache_read_tokens": 2782,
+        "cache_write_tokens": 0,
+        "estimated_usd": 0.009618
+      },
+      {
+        "purpose": "extraction",
+        "model": "claude-sonnet-5-5",
+        "calls": 2,
+        "input_tokens": 459,
+        "output_tokens": 1565,
+        "cache_read_tokens": 2999,
+        "cache_write_tokens": 2999,
+        "estimated_usd": 0.024665
+      }
+    ],
+    "fixture-tenant/unresolved-conflict": [
+      {
+        "purpose": "answer",
+        "model": "claude-sonnet-5-5",
+        "calls": 1,
+        "input_tokens": 375,
+        "output_tokens": 837,
+        "cache_read_tokens": 1391,
+        "cache_write_tokens": 0,
+        "estimated_usd": 0.009398
+      },
+      {
+        "purpose": "extraction",
+        "model": "claude-sonnet-5-5",
+        "calls": 1,
+        "input_tokens": 432,
+        "output_tokens": 792,
+        "cache_read_tokens": 2999,
+        "cache_write_tokens": 0,
+        "estimated_usd": 0.009384
+      }
+    ]
+  },
+  "totals": {
+    "calls": 134,
+    "input_tokens": 361702,
+    "output_tokens": 272378,
+    "cache_read_tokens": 302081,
+    "cache_write_tokens": 17777,
+    "estimated_usd": 3.552
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "scorer_version": "scorer-v1",
+  "cases_path": "evaluation/cases.jsonl",
+  "cases_sha256": "10dbd307a3d2b738c0cc57edd1d158a75be2dbe725211c5ac6b31f305f8664e8",
+  "holdout_freeze": {
+    "frozen_at": "2026-10-14T07:14:11.499527+00:00",
+    "sha256": "4725bd160f0823ddcbf993e080ce9e76602f44a27c6d737e592611ce61d803e3",
+    "hash_method": "sha256 over sorted canonical JSON lines (sort_keys) of split=holdout cases",
+    "case_ids": [
+      "EV-H01-false-correlation-premise",
+      "EV-H02-shelf-life-potency-gap",
+      "EV-H03-scd-scope-pmc"
+    ],
+    "code_version": {
+      "package": "potency 0.1.0",
+      "git_commit": "b9a7f8014b6a28c19bd2a4ea5c3449d9c1c158ad",
+      "uncommitted_changes": true
+    },
+    "note": "Frozen before the final evaluation run. Holdout cases are not used for prompt/retrieval tuning."
+  },
+  "run_ids": [
+    "eval-20261014T073053Z-ea4124"
+  ],
+  "last_run_id": null,
+  "models": [
+    "claude-sonnet-5-5"
+  ],
+  "embedding_models": [
+    "BAAI/bge-base-en-v1.5"
+  ],
+  "any_test_double": false,
+  "evidence_budget_chars": 6000,
+  "by_split_mode": {
+    "dev/graph": {
+      "cases": 3,
+      "status_counts": {
+        "completed": 3
+      },
+      "retrieval": {
+        "all_expected_groups_in_packed_evidence": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "mean_group_recall": 0.5,
+        "expected_in_candidate_pool": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "not_applicable_cases": 1,
+        "failed_or_missing_cases": 0
+      },
+      "answer": {
+        "all_checks_passed": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6667
+        },
+        "checks_passed": {
+          "numerator": 13,
+          "denominator": 15,
+          "rate": 0.8667
+        },
+        "verified_claims": {
+          "numerator": 14,
+          "denominator": 15,
+          "rate": 0.9333
+        },
+        "answers_with_citation_failures": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333
+        },
+        "denominator_note": "all_checks_passed uses every case (failed/unscorable count as not passed)"
+      }
+    },
+    "dev/vector": {
+      "cases": 3,
+      "status_counts": {
+        "completed": 3
+      },
+      "retrieval": {
+        "all_expected_groups_in_packed_evidence": {
+          "numerator": 1,
+          "denominator": 2,
+          "rate": 0.5
+        },
+        "mean_group_recall": 0.5,
+        "expected_in_candidate_pool": {
+          "numerator": 2,
+          "denominator": 2,
+          "rate": 1.0
+        },
+        "not_applicable_cases": 1,
+        "failed_or_missing_cases": 0
+      },
+      "answer": {
+        "all_checks_passed": {
+          "numerator": 3,
+          "denominator": 3,
+          "rate": 1.0
+        },
+        "checks_passed": {
+          "numerator": 15,
+          "denominator": 15,
+          "rate": 1.0
+        },
+        "verified_claims": {
+          "numerator": 14,
+          "denominator": 14,
+          "rate": 1.0
+        },
+        "answers_with_citation_failures": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "denominator_note": "all_checks_passed uses every case (failed/unscorable count as not passed)"
+      }
+    },
+    "holdout/graph": {
+      "cases": 3,
+      "status_counts": {
+        "completed": 3
+      },
+      "retrieval": {
+        "all_expected_groups_in_packed_evidence": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333
+        },
+        "mean_group_recall": 0.3333,
+        "expected_in_candidate_pool": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6667
+        },
+        "not_applicable_cases": 0,
+        "failed_or_missing_cases": 0
+      },
+      "answer": {
+        "all_checks_passed": {
+          "numerator": 1,
+          "denominator": 3,
+          "rate": 0.3333
+        },
+        "checks_passed": {
+          "numerator": 11,
+          "denominator": 13,
+          "rate": 0.8462
+        },
+        "verified_claims": {
+          "numerator": 14,
+          "denominator": 14,
+          "rate": 1.0
+        },
+        "answers_with_citation_failures": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "denominator_note": "all_checks_passed uses every case (failed/unscorable count as not passed)"
+      }
+    },
+    "holdout/vector": {
+      "cases": 3,
+      "status_counts": {
+        "completed": 3
+      },
+      "retrieval": {
+        "all_expected_groups_in_packed_evidence": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "mean_group_recall": 0.0,
+        "expected_in_candidate_pool": {
+          "numerator": 2,
+          "denominator": 3,
+          "rate": 0.6667
+        },
+        "not_applicable_cases": 0,
+        "failed_or_missing_cases": 0
+      },
+      "answer": {
+        "all_checks_passed": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "checks_passed": {
+          "numerator": 10,
+          "denominator": 13,
+          "rate": 0.7692
+        },
+        "verified_claims": {
+          "numerator": 13,
+          "denominator": 13,
+          "rate": 1.0
+        },
+        "answers_with_citation_failures": {
+          "numerator": 0,
+          "denominator": 3,
+          "rate": 0.0
+        },
+        "denominator_note": "all_checks_passed uses every case (failed/unscorable count as not passed)"
+      }
+    }
+  },
+  "overall": {
+    "cases": 12,
+    "status_counts": {
+      "completed": 12
+    },
+    "retrieval": {
+      "all_expected_groups_in_packed_evidence": {
+        "numerator": 3,
+        "denominator": 10,
+        "rate": 0.3
+      },
+      "mean_group_recall": 0.3,
+      "expected_in_candidate_pool": {
+        "numerator": 7,
+        "denominator": 10,
+        "rate": 0.7
+      },
+      "not_applicable_cases": 2,
+      "failed_or_missing_cases": 0
+    },
+    "answer": {
+      "all_checks_passed": {
+        "numerator": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "checks_passed": {
+        "numerator": 49,
+        "denominator": 56,
+        "rate": 0.875
+      },
+      "verified_claims": {
+        "numerator": 55,
+        "denominator": 56,
+        "rate": 0.9821
+      },
+      "answers_with_citation_failures": {
+        "numerator": 1,
+        "denominator": 12,
+        "rate": 0.0833
+      },
+      "denominator_note": "all_checks_passed uses every case (failed/unscorable count as not passed)"
+    }
+  },
+  "case_failures": [
+    {
+      "case_id": "EV-D02-draft-guidance-authority",
+      "mode": "graph",
+      "failed_answer_checks": [
+        "required_1",
+        "no_citation_failures"
+      ],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "guidance-cgt-potency-assurance-2023-draft:page-0025",
+        "guidance-cgt-potency-assurance-2023-draft:page-0013",
+        "sbra-casgevy-tdt-2024-01:page-0009-c01",
+        "guidance-cgt-potency-2011:page-0016",
+        "casgevy-125785-cmc-review:page-0062-c02"
+      ]
+    },
+    {
+      "case_id": "EV-D02-draft-guidance-authority",
+      "mode": "vector",
+      "failed_answer_checks": [],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "guidance-cgt-potency-assurance-2023-draft:page-0004",
+        "casgevy-125787-scd-approval-letter:page-0005",
+        "sbra-casgevy-tdt-2024-01:page-0007-c01",
+        "guidance-cgt-potency-assurance-2023-draft:page-0008",
+        "guidance-cgt-potency-2011:page-0004"
+      ]
+    },
+    {
+      "case_id": "EV-H01-false-correlation-premise",
+      "mode": "vector",
+      "failed_answer_checks": [
+        "required_0"
+      ],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "casgevy-125785-cmc-review:page-0075-c01",
+        "casgevy-125785-statistical-review-casgevy:page-0024-c02",
+        "sbra-casgevy-scd-2023-12:page-0008",
+        "sbra-casgevy-tdt-2024-01:page-0016-c01",
+        "sbra-casgevy-tdt-2024-01:page-0008-c01"
+      ]
+    },
+    {
+      "case_id": "EV-H02-shelf-life-potency-gap",
+      "mode": "graph",
+      "failed_answer_checks": [
+        "required_1"
+      ],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "sbra-casgevy-tdt-2024-01:page-0006-c01",
+        "sbra-casgevy-tdt-2024-01:page-0013-c01",
+        "sbra-casgevy-tdt-2024-01:page-0007-c02",
+        "sbra-casgevy-scd-2023-12:page-0019",
+        "casgevy-125785-pharmacology-toxicology-review-casgevy:page-0032-c01"
+      ]
+    },
+    {
+      "case_id": "EV-H02-shelf-life-potency-gap",
+      "mode": "vector",
+      "failed_answer_checks": [
+        "required_1"
+      ],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "sbra-casgevy-tdt-2024-01:page-0010-c01",
+        "casgevy-125785-cmc-review:page-0099-c01",
+        "casgevy-125785-cmc-review:page-0094-c01",
+        "casgevy-125785-cmc-review:page-0061-c02",
+        "casgevy-125787-scd-approval-letter:page-0002",
+        "casgevy-125785-approval-letter:page-0002-c01"
+      ]
+    },
+    {
+      "case_id": "EV-H03-scd-scope-pmc",
+      "mode": "graph",
+      "failed_answer_checks": [
+        "required_0"
+      ],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "casgevy-125785-cber-dmpq-cmc-facility-bla-review-memo-casgevy:page-0006-c01",
+        "casgevy-125785-cmc-review:page-0062-c02",
+        "casgevy-125785-cber-dmpq-cmc-facility-bla-review-memo-casgevy:page-0002-c01",
+        "sbra-casgevy-scd-2023-12:page-0004",
+        "sbra-lyfgenia-2023-12:page-0005"
+      ]
+    },
+    {
+      "case_id": "EV-H03-scd-scope-pmc",
+      "mode": "vector",
+      "failed_answer_checks": [
+        "required_0"
+      ],
+      "retrieval_all_groups_hit": false,
+      "retrieved_passage_ids": [
+        "sbra-lyfgenia-2023-12:page-0005",
+        "sbra-casgevy-scd-2023-12:page-0003",
+        "casgevy-125785-cber-dmpq-cmc-facility-bla-review-memo-casgevy:page-0002-c01",
+        "sbra-casgevy-scd-2023-12:page-0021",
+        "sbra-casgevy-scd-2023-12:page-0004"
+      ]
+    }
+  ],
+  "visible_supplied_regression": {
+    "origin": "visible_supplied",
+    "source": "fixtures/report.json",
+    "check_status_counts": {
+      "passed": 11
+    },
+    "checks_total": 11,
+    "test_doubles_used": false
+  },
+  "recompute_command": "potency eval score   # recomputes results.jsonl scores + this report from saved evaluation/answers.jsonl and traces.jsonl; no model calls",
+  "limitations": [
+    "Candidate-authored labels: expected passages and regex checks were written by the implementer after reading the corpus; they are provisional and not expert-confirmed.",
+    "Regex answer checks detect required/forbidden statements, not overall answer correctness or completeness.",
+    "Six cases x two modes is a regression smoke set, not an accuracy estimate; the holdout is small and authored by the same person as the system."
+  ],
+  "failure_analysis_path": "evaluation/failure-analysis.md"
+}

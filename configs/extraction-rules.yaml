@@ -1,0 +1,80 @@
+# Corpus-wide relevance policy for semantic extraction (extraction-policy-v1).
+# Generic potency/CMC/regulatory vocabulary; never keyed to question IDs, fixture names or expected answers.
+# Every current passage is scored; selection = score >= min_score, capped per source and in total.
+version: relevance-policy-v1
+min_chars: 80
+min_score: 2.0
+max_selected_total: 240
+max_selected_per_source: 30
+min_selected_per_source: 1   # top passage of every source with score > 0 is kept, so each document gets semantic coverage
+batch_size: 3
+max_assertions_per_passage: 6
+
+terms:
+  potency: 3.0
+  potency assay: 3.0
+  potency assurance: 3.0
+  mechanism of action: 2.0
+  biological activity: 2.0
+  assay: 1.5
+  bioassay: 2.0
+  release: 1.2
+  lot release: 2.0
+  specification: 1.5
+  acceptance criteri: 2.0
+  characterization: 1.5
+  stability: 1.0
+  identity: 1.0
+  purity: 0.8
+  strength: 0.8
+  validation: 1.0
+  validated: 1.0
+  qualified: 0.8
+  matrix: 1.2
+  surrogate: 1.5
+  editing: 1.0
+  indel: 1.0
+  allele: 0.6
+  fetal hemoglobin: 1.0
+  hbf: 1.0
+  cd34: 1.0
+  viable: 0.6
+  viability: 0.8
+  vector copy number: 1.2
+  correlat: 1.5
+  clinical outcome: 1.2
+  information request: 2.0
+  " ir ": 1.5
+  requested: 1.0
+  request: 0.8
+  agreed: 1.0
+  commit: 0.8
+  postmarketing: 1.0
+  "(b) (4)": 0.8
+  "(b)(4)": 0.8
+  redact: 0.5
+  cmc: 1.2
+  chemistry, manufacturing: 1.5
+  drug product: 0.8
+  comparab: 1.0
+  "610.10": 3.0
+  "600.3": 2.0
+  guidance: 0.8
+  recommend: 0.6
+  "shall": 0.6
+  approval: 0.5
+  reviewer: 0.5
+
+# Applied as a multiplier; authority describes the document, not individual assertions.
+authority_weights:
+  regulation: 1.5
+  final_guidance: 1.3
+  draft_guidance: 1.3
+  fda_discipline_review: 1.2
+  sbra: 1.2
+  approval_action: 1.1
+  fda_review_communication: 1.2
+  fda_review_record: 0.9
+  fda_commitment_letter: 0.6
+  synthetic_fixture: 1.0
+  default: 1.0
